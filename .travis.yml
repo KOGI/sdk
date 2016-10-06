@@ -34,7 +34,9 @@ before_install:
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - wget https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
+  - /usr/bin/google-chrome --version
   - export CHROME_BIN=/usr/bin/google-chrome
+  - /usr/bin/google-chrome-unstable --version
   - export CHROME_CANARY_BIN=/usr/bin/google-chrome-unstable
 
   # Install Depot Tools
@@ -71,7 +73,7 @@ script:
 env:
   - ANALYZER=master
   - ANALYZER=master DDC_BROWSERS=Firefox
-  - ANALYZER=master DDC_BROWSERS=chrome_travis
+  - ANALYZER=master DDC_BROWSERS=ChromeCanaryTravis
   - ANALYZER=master CXX=g++
   - ANALYZER=master CXX=clang++
   - TEST=coverage
